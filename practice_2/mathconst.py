@@ -7,6 +7,10 @@ def MathConst():
 	s=raw_input("Please enter <constant>:<precision>: ")
 	p=s.split(":")
 	m=p[0]
-	n=int(p[1])
-	print("%s = %s" % (m,round(dconst[m],n)))
+	try:
+		n=int(p[1])
+	except(ValueError):
+		print("Please enter correct precision")
+	else:
+		print("%s = %s" % (m,round(dconst[m],n)))
 MathConst()
