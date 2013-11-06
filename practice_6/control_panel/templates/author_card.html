@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Author's card</title>
+</head>
+<body>
+<table border="1">
+    <tr><td>First Name</td><td>{{author.first_name}}</td></tr>
+    <tr><td>Last name</td><td>{{author.last_name}}</td></tr>
+    {% if author.birthyear %}
+    <tr><td>Birth Year:</td><td>{{author.birthyear}}</td></tr>
+    {% else %}
+    <tr><td>Birth year:</td><td>not specified</td></tr>
+    {% endif %}    
+    {% if author.email %}
+    <tr><td>E-Mail:</td><td>{{author.email}}</td></tr>
+    {% endif %}
+</table>
+</body>
+</html>
