@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orders list</title>
+</head>
+<body>
+<h1>Orders list:</h1>
+<table border="1">
+<thead align="center"><tr><th colspan="2">Orders list</th></tr></thead>
+<tr><td><b>Book</b></td><td><b>Customer</b></td></tr>
+{% for order in object_list %}
+<tr>
+    <td>
+        {{ order.itemld }}
+    </td>
+
+    <td>
+        <a href="/customer.html/{{ order.customer.id }}">{{ order.customer }}</a>
+    </td>
+</tr>
+
+{% endfor %}
+</table>
+</body>
+</html>

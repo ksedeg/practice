@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title></title>
+</head>
+<body>
+<h1>Please enter the book name or ISBN for a book search</h1>
+<form action="book_search.html" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="поиск" />
+</form>
+Книги:
+<table border="1">
+
+    {% for b in books %}
+        <tr>
+        <td>Book name:</td>
+        <td>{{ b.title }}</td>
+        </tr>
+        <tr>
+        <td>
+            ISBN:
+        </td>
+        <td>
+            {{ b.isbn }}
+        </td>
+        </tr>
+        <tr>
+        <td>Author(s):</td>
+        <td>{% for i in b.authors.all %}{{ i }}, {% endfor %}</td>
+        </tr>
+        <tr>
+        <td>Publisher: </td>
+        <td>{{ b.publisher }}</td>
+        </tr>
+        <tr>
+        <td>Publication date: </td>
+        <td>{{ b.publication_date }}</td>
+        </tr>
+        <tr>
+        <td>Description: </td>
+        <td>{{ b.description }}</td>
+        </tr>
+
+
+    {% endfor %}
+
+</table>
+</body>
+</html>
